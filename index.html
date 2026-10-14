@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблица случайных чисел</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+      width: 40px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="foo()">Добавить число</button>
+
+  <table id="numberTable"></table>
+
+  <script>
+    const table = document.getElementById("numberTable");
+    const columns = 6;
+
+    function addRandomNumber() {
+      const number = Math.floor(Math.random() * 100);
+
+      let row = table.lastElementChild;
+
+      if (!row || row.children.length === columns) {
+        row = document.createElement("tr");
+        table.appendChild(row);
+      }
+
+      const cell = document.createElement("td");
+      cell.textContent = number;
+
+      if (number >= 50) {
+        cell.style.backgroundColor = "orange";
+      }
+
+      row.appendChild(cell);
+    }
+    for (let i = 0; i < 30; i++) {
+      addRandomNumber();
+    }
+    function foo() {
+      addRandomNumber();
+    }
+  </script>
+</body>
+</html>   
+
+        \(0_0)/  
